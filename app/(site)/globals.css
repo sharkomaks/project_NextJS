@@ -1,0 +1,41 @@
+:root {
+    --gray: #D8D8D8;
+    --light-gray: #EFEFEF;
+    --dark-gray: #707070;
+    --errors: #D82700;
+    --white: #FFFFFF;
+    --black: #000000;
+    --accent: #A18A68;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    color: var(--black);
+    background: var(--white);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+input::placeholder,
+textarea::placeholder {
+    font: inherit;
+}
+
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
