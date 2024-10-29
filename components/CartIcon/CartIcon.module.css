@@ -1,0 +1,24 @@
+.cart-icon {
+    position: relative;
+    display: inline-flex;
+}
+
+.cart-count {
+    position: absolute;
+    top: -3px;
+    right: -4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 13px;
+    height: 13px;
+
+    font-size: 7px;
+    font-weight: 400;
+
+    background: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 50%;
+}

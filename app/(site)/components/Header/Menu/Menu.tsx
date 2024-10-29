@@ -3,7 +3,6 @@
 import styles from './Menu.module.css';
 import Logo from '../icons/logo.svg';
 import GlassIcon from '../icons/glass.svg';
-import CartIcon from '../icons/cart.svg';
 import FavoritesIcon from '../icons/favorites.svg';
 import LoginIcon from '../icons/login.svg';
 import Link from 'next/link';
@@ -11,6 +10,7 @@ import {motion} from 'framer-motion';
 import {useState} from 'react';
 import cn from 'classnames';
 import SearchInput from '@/components/SearchInput/SearchInput';
+import CartIcon from '@/components/CartIcon/CartIcon';
 
 function Menu() {
 
@@ -34,7 +34,7 @@ function Menu() {
 			</div>
 			<div className={styles['left-panel']}>
 				<Link href={'/'} className={cn({
-					[styles['active']]: false
+					[styles['active']]: true
 				})}>
 					Магазин
 				</Link>
@@ -62,7 +62,7 @@ function Menu() {
 				<Link href={'/'} className={cn(styles['icon'], {
 					[styles['active']]: true
 				})}>
-					<CartIcon/>
+					<CartIcon count={1}/>
 				</Link>
 				<Link href={'/'} className={cn(styles['icon'], {
 					[styles['active']]: false

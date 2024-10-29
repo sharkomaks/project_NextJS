@@ -16,7 +16,7 @@
     }
 }
 
-@media (width <= 425px) {
+@media (width <= 430px) {
     .wrapper {
         padding: var(--padding-s);
     }
