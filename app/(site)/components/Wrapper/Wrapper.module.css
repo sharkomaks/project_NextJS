@@ -7,17 +7,17 @@
     max-width: 1440px;
     min-height: 100vh;
     margin: 0 auto;
-    padding: 0 100px;
+    padding: var(--padding-l);
 }
 
-@media (width <= 768px) {
+@media (width <= 1024px) {
     .wrapper {
-        padding: 0 50px;
+        padding: var(--padding-m);
     }
 }
 
 @media (width <= 425px) {
     .wrapper {
-        padding: 0 16px;
+        padding: var(--padding-s);
     }
 }

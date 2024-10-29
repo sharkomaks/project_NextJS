@@ -1,0 +1,14 @@
+.mobile-menu {
+    display: none;
+}
+
+@media (width <= 768px) {
+    .mobile-menu {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 15px;
+        align-items: center;
+
+        padding: 15px 0;
+    }
+}
