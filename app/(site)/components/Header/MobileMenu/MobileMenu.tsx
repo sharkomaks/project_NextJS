@@ -10,12 +10,18 @@ import Link from 'next/link';
 import CartIcon from '@/components/CartIcon/CartIcon';
 import SearchInput from '@/components/SearchInput/SearchInput';
 import {motion} from 'framer-motion';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import {usePathname} from 'next/navigation';
 
 
 function MobileMenu() {
 
 	const [open, setOpen] = useState<boolean>(false);
+	const pathname = usePathname();
+
+	useEffect(() => {
+		setOpen(false);
+	}, [pathname]);
 
 	const variants = {
 		opened: {
