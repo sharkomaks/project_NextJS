@@ -30,7 +30,7 @@ function Menu() {
 	return (
 		<nav className={styles['menu']}>
 			<div>
-				<Link href={'/'}><Logo/></Link>
+				<Link aria-label={'Главная страница'} href={'/'}><Logo/></Link>
 			</div>
 			<div className={styles['left-panel']}>
 				<Link href={'/'} className={cn({
@@ -54,22 +54,25 @@ function Menu() {
 					})}>
 					<SearchInput/>
 				</motion.div>
-				<GlassIcon
+				<button
+					aria-label={'Поиск'}
 					className={cn(styles['search-icon'], {
 						[styles['icon-hidden']]: open
 					})}
-					onClick={() => setOpen(o => !o)}/>
-				<Link href={'/'} className={cn(styles['icon'], {
+					onClick={() => setOpen(true)}>
+					<GlassIcon/>
+				</button>
+				<Link aria-label={'Корзина'} href={'/'} className={cn(styles['icon'], {
 					[styles['active']]: true
 				})}>
 					<CartIcon count={1}/>
 				</Link>
-				<Link href={'/'} className={cn(styles['icon'], {
+				<Link aria-label={'Избранное'} href={'/'} className={cn(styles['icon'], {
 					[styles['active']]: false
 				})}>
 					<FavoritesIcon/>
 				</Link>
-				<Link href={'/'} className={cn(styles['icon'], {
+				<Link aria-label={'Вход'} href={'/'} className={cn(styles['icon'], {
 					[styles['active']]: false
 				})}>
 					<LoginIcon/>
