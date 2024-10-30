@@ -43,8 +43,8 @@
 }
 
 .search-icon {
-    display: flex;
     cursor: pointer;
+    display: flex;
     margin-right: 40px;
     margin-left: 60px;
 }

@@ -1,12 +1,14 @@
 import styles from './Input.module.css';
 import {InputProps} from './Input.props';
 import cn from 'classnames';
+import {forwardRef} from 'react';
 
-function Input({className, ...props}: InputProps) {
+const Input = forwardRef<HTMLInputElement, InputProps>(
+	function Input({className, ...props}, ref) {
 
-	return (
-		<input type="text" className={cn(styles['input'], className)} {...props}/>
-	);
-}
+		return (
+			<input ref={ref} type="text" className={cn(styles['input'], className)} {...props}/>
+		);
+	});
 
 export default Input;

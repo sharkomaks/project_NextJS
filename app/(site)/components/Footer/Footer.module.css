@@ -59,6 +59,12 @@
     display: flex;
 }
 
+.error-message {
+    position: absolute;
+    left: 0;
+    color: var(--errors);
+}
+
 @media (width <= 1024px) {
     .footer {
         grid-template:
