@@ -1,0 +1,32 @@
+.notice {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--dark-gray);
+
+    background: var(--light-gray);
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 0 8px 0 rgb(0 0 0 / 15%);
+}
+
+@media (width <= 890px) {
+    .notice {
+        right: -50%
+    }
+}
+
+@media (width <= 445px) {
+    .notice {
+        font-size: 12px;
+    }
+}

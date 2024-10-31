@@ -1,0 +1,64 @@
+.mobile-menu {
+    display: none;
+}
+
+.head {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 20px;
+    align-items: center;
+
+    padding: 15px 0;
+}
+
+.toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+}
+
+.body {
+    position: fixed;
+    z-index: 10;
+    inset: 60px 0 0;
+
+    overflow-y: scroll;
+    display: grid;
+    gap: 25px;
+    align-content: start;
+
+    padding: 0 15px;
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+
+    background: var(--white);
+}
+
+.body input {
+    margin-bottom: 20px;
+}
+
+.body a {
+    display: inline-flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    justify-self: start;
+}
+
+.hr {
+    height: 1px;
+    background: var(--gray);
+    border: none;
+}
+
+@media (width <= 768px) {
+    .mobile-menu {
+        display: block;
+    }
+}
