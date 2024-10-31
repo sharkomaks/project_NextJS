@@ -1,0 +1,19 @@
+.form {
+    position: relative;
+}
+
+.form input {
+    width: 100%;
+}
+
+.form-button {
+    cursor: pointer;
+    position: absolute;
+    right: 0
+}
+
+.error-message {
+    position: absolute;
+    left: 0;
+    color: var(--errors);
+}

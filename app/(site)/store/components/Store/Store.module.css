@@ -1,0 +1,21 @@
+.store {
+    padding: 60px 0;
+    display: grid;
+    grid-template-columns: 270px 1fr;
+}
+
+.store h1 {
+    grid-column: 1/ -1;
+    margin-bottom: 40px;
+}
+
+.filter {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.sales {
+    display: flex;
+    justify-content: space-between;
+}

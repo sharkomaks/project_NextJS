@@ -4,10 +4,8 @@ import styles from './RangeSelect.module.css';
 import {RangeSelectProps} from './RangeSelect.props';
 import Slider from 'react-slider';
 import {useState} from 'react';
-import cn from 'classnames';
 
-
-function RangeSelect({max, className, ...props}: RangeSelectProps) {
+function RangeSelect({max, ...props}: RangeSelectProps) {
 
 	const [value, setValue] = useState<[number, number]>([0, 100]);
 
@@ -19,7 +17,7 @@ function RangeSelect({max, className, ...props}: RangeSelectProps) {
 	const maxNum = number(1);
 
 	return (
-		<div className={cn(styles['wrapper'], className)} {...props}>
+		<div {...props}>
 			<Slider
 				className={styles['horizontal-slider']}
 				thumbClassName={styles['example-thumb']}

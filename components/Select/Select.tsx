@@ -13,7 +13,7 @@ function Select({option, className, ...props}: SelectProps) {
 			{...props}>
 			<option value="" disabled hidden>Категория</option>
 			{option && option.map(o => (
-				<option key={o.categoryId} value={o.name}>{o.name}</option>
+				<option key={o.id} value={o.name}>{o.name}</option>
 			))}
 		</Component>
 	);
