@@ -1,28 +1,19 @@
 import Htag from '@/components/Htag/Htag';
-import Button from '@/components/Button/Button';
-import Select from '@/components/Select/Select';
-import Switch from '@/components/Switch/Switch';
-import RangeSelect from '@/components/RangeSelect/RangeSelect';
-
-const category = [
-	{
-		name: 'Золото',
-		categoryId: 1
-	}, {
-		name: 'Серебро',
-		categoryId: 2
-	}
-];
+import Card from '@/components/Card/Card';
 
 export default function Home() {
+
+	const card = {
+		name: 'Lira Earrings',
+		price: 20,
+		img: '/img.png'
+	};
+
 	return (
 		<div>
 			<Htag tag={'h1'}>Body</Htag>
-			<Button>Добавить в корзину</Button>
-			<Button color={'black'}>Отправить</Button>
-			<Select option={category}></Select>
-			<Switch/>
-			<RangeSelect max={180}/>
+			<Card {...card} sale={21} oldPrice={40} favorites/>
+			<Card {...card} sold favorites/>
 		</div>
 	);
 }
