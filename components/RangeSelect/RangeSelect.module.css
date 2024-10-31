@@ -1,0 +1,37 @@
+.wrapper {
+    max-width: 300px;
+    margin-top: 23px;
+}
+
+.horizontal-slider {
+    width: 100%;
+}
+
+.example-track {
+    height: 2px;
+    background: var(--gray);
+}
+
+.example-track:nth-child(2) {
+    background: var(--black);
+}
+
+.example-thumb {
+    cursor: pointer;
+
+    top: -4px;
+
+    width: 2px;
+    height: 10px;
+
+    background: var(--black);
+}
+
+.price {
+    padding-top: 9px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    color: var(--dark-gray);
+}
