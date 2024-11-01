@@ -1,10 +1,10 @@
-import Htag from '@/components/Htag/Htag';
+import MainGallery from '@/app/(site)/components/MainGallery/MainGallery';
 
 export default function Home() {
 
 	return (
 		<div>
-			<Htag tag={'h1'}>Body</Htag>
+			<MainGallery/>
 		</div>
 	);
 }
