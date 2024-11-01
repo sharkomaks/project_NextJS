@@ -8,14 +8,14 @@ import {useForm} from 'react-hook-form';
 import {FormProps} from '@/components/Form/Form.props';
 import cn from 'classnames';
 
-function Form({type, setOpen, className, ...props}: FormProps) {
+function Form({type, setOpen, submit, className, ...props}: FormProps) {
 
 	const {register, handleSubmit, formState: {errors}, reset} = useForm<{ line: string; }>();
 
 	const submitSubscription = (data: { line: string; }) => {
 		if (setOpen) setOpen(true);
 		reset();
-		console.log(data.line);
+		submit(data.line);
 	};
 
 	return (

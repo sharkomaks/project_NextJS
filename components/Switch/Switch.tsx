@@ -2,11 +2,9 @@
 
 import styles from './Switch.module.css';
 import {Switch as Component} from '@headlessui/react';
-import {useState} from 'react';
+import {SwitchProps} from '@/components/Switch/Switch.props';
 
-function Switch() {
-
-	const [enable, setEnable] = useState<boolean>(false);
+function Switch({enable, setEnable}: SwitchProps) {
 
 	return (
 		<Component

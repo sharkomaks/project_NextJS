@@ -1,11 +1,8 @@
 import {HTMLAttributes} from 'react';
+import {Product} from '@/interfaces/products.interface';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
-	img: string;
-	name: string;
-	price: number;
-	oldPrice?: number;
-	sale?: number;
-	sold?: boolean;
+	product: Product;
 	favorites?: boolean;
+	sold?: boolean;
 }

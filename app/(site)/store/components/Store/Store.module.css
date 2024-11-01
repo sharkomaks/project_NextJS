@@ -1,21 +1,124 @@
 .store {
-    padding: 60px 0;
     display: grid;
+    grid-template:
+            'h1 h1'
+            'filter card-list'
+            '. offset';
     grid-template-columns: 270px 1fr;
+    gap: 40px 35px;
+
+    padding: 60px 0;
 }
 
 .store h1 {
-    grid-column: 1/ -1;
-    margin-bottom: 40px;
+    grid-area: h1;
+}
+
+.filter-menu {
+    display: none;
+    grid-area: filter-menu;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--accent);
 }
 
 .filter {
     display: grid;
+    grid-area: filter;
     grid-template-columns: 1fr;
     gap: 40px;
+    align-content: start;
+}
+
+.filter svg {
+    display: none;
 }
 
 .sales {
     display: flex;
     justify-content: space-between;
+}
+
+.card-list {
+    display: grid;
+    grid-area: card-list;
+    grid-template-columns:  repeat(auto-fit, minmax(280px, 1fr));
+    gap: 70px 25px;
+}
+
+.offset {
+    display: flex;
+    grid-area: offset;
+    gap: 8px;
+}
+
+.offset button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    padding: 0;
+}
+
+.offset button:hover {
+    color: var(--white);
+    background: var(--black);
+}
+
+@media (width <= 1024px) {
+    .store {
+        grid-template:
+                'h1'
+                'filter-menu'
+                'card-list'
+                'offset';
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 25px 0 50px;
+    }
+
+    .store h1 {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 26px;
+    }
+
+    .filter {
+        position: fixed;
+        z-index: 10;
+        inset: 0;
+
+        padding: 30px 50px;
+
+        background: var(--white);
+    }
+
+    .filter svg {
+        display: block;
+        justify-self: end;
+    }
+
+    .filter-menu {
+        cursor: pointer;
+
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        justify-self: start;
+    }
+
+    .card-list {
+        grid-template-columns:  repeat(auto-fit, minmax(130px, 1fr));
+        gap: 25px 15px;
+    }
+}
+
+@media (width <= 430px) {
+    .filter {
+        padding: 15px 20px;
+    }
 }

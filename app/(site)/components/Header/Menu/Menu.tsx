@@ -17,7 +17,6 @@ function Menu() {
 
 	const [open, setOpen] = useState<boolean>(false);
 	const pathname = usePathname();
-	console.log(pathname);
 
 	const variants = {
 		visible: {

@@ -3,9 +3,9 @@
 import styles from './RangeSelect.module.css';
 import {RangeSelectProps} from './RangeSelect.props';
 import Slider from 'react-slider';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
-function RangeSelect({max, ...props}: RangeSelectProps) {
+function RangeSelect({max, setPriceRange, ...props}: RangeSelectProps) {
 
 	const [value, setValue] = useState<[number, number]>([0, 100]);
 
@@ -15,6 +15,10 @@ function RangeSelect({max, ...props}: RangeSelectProps) {
 
 	const minNum = number(0);
 	const maxNum = number(1);
+
+	useEffect(() => {
+		setPriceRange({min: Number(minNum), max: Number(maxNum)});
+	}, [minNum, maxNum]);
 
 	return (
 		<div {...props}>

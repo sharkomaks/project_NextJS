@@ -1,4 +1,5 @@
 .card {
+    overflow: hidden;
     display: inline-flex;
     flex-direction: column;
     gap: 15px;
@@ -75,4 +76,15 @@
     position: absolute;
     top: 20px;
     right: 16px;
+}
+
+@media (width <= 1024px) {
+    .card {
+        gap: 5px;
+        font-size: 14px;
+    }
+
+    .name {
+        padding: 0
+    }
 }
