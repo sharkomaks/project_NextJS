@@ -1,0 +1,29 @@
+.button {
+    cursor: pointer;
+
+    padding: 16px 32px;
+
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;
+    color: var(--black);
+
+    background: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 4px;
+}
+
+.black {
+    color: var(--white);
+    background: var(--black);
+}
+
+.button:hover {
+    color: var(--white);
+    background: var(--black);
+}
+
+.black:hover {
+    color: var(--black);
+    background: var(--white);
+}

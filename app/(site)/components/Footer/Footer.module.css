@@ -27,18 +27,7 @@
 }
 
 .form {
-    position: relative;
     grid-area: form;
-}
-
-.form input {
-    width: 100%;
-}
-
-.form-button {
-    cursor: pointer;
-    position: absolute;
-    right: 0
 }
 
 .copy {
@@ -54,16 +43,10 @@
     justify-content: end;
 }
 
-
 .social a {
     display: flex;
 }
 
-.error-message {
-    position: absolute;
-    left: 0;
-    color: var(--errors);
-}
 
 @media (width <= 1024px) {
     .footer {

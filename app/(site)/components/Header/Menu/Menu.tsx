@@ -11,10 +11,12 @@ import {useState} from 'react';
 import cn from 'classnames';
 import SearchInput from '@/components/SearchInput/SearchInput';
 import CartIcon from '@/components/CartIcon/CartIcon';
+import {usePathname} from 'next/navigation';
 
 function Menu() {
 
 	const [open, setOpen] = useState<boolean>(false);
+	const pathname = usePathname();
 
 	const variants = {
 		visible: {
@@ -33,13 +35,13 @@ function Menu() {
 				<Link aria-label={'Главная страница'} href={'/'}><Logo/></Link>
 			</div>
 			<div className={styles['left-panel']}>
-				<Link href={'/'} className={cn({
-					[styles['active']]: true
+				<Link href={'/store'} className={cn({
+					[styles['active']]: pathname.split('/')[1] === 'store'
 				})}>
 					Магазин
 				</Link>
 				<Link href={'/'} className={cn({
-					[styles['active']]: false
+					[styles['active']]: pathname.split('/')[1] === 'about'
 				})}>
 					О нас
 				</Link>
@@ -63,17 +65,17 @@ function Menu() {
 					<GlassIcon/>
 				</button>
 				<Link aria-label={'Корзина'} href={'/'} className={cn(styles['icon'], {
-					[styles['active']]: true
+					[styles['active']]: pathname.split('/')[1] === 'cart'
 				})}>
 					<CartIcon count={1}/>
 				</Link>
 				<Link aria-label={'Избранное'} href={'/'} className={cn(styles['icon'], {
-					[styles['active']]: false
+					[styles['active']]: pathname.split('/')[1] === 'favorites'
 				})}>
 					<FavoritesIcon/>
 				</Link>
 				<Link aria-label={'Вход'} href={'/'} className={cn(styles['icon'], {
-					[styles['active']]: false
+					[styles['active']]: pathname.split('/')[1] === 'login'
 				})}>
 					<LoginIcon/>
 				</Link>
