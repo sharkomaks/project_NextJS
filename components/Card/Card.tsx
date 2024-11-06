@@ -10,6 +10,8 @@ import cn from 'classnames';
 import {motion} from 'framer-motion';
 import {useState} from 'react';
 import Link from 'next/link';
+import {calculateOldPrice} from '@/helpers/oldPrice';
+import Discount from '@/components/Discount/Discount';
 
 function Card({product, favorites, sold, className}: CardProps) {
 
@@ -24,10 +26,6 @@ function Card({product, favorites, sold, className}: CardProps) {
 		hidden: {
 			opacity: 0
 		}
-	};
-
-	const calculateOldPrice = (newPrice: number, sale: number): number => {
-		return newPrice / (1 - sale / 100);
 	};
 
 	return (
@@ -46,7 +44,7 @@ function Card({product, favorites, sold, className}: CardProps) {
 					<Link href={`/product/${sku}`}><EyeIcon/></Link>
 					<Link href={'/'}><FavoritesIcon/></Link>
 				</motion.div>
-				{!!discount && <div className={styles['sale']}>- {discount}%</div>}
+				{!!discount && <Discount className={styles['sale']} discount={discount}/>}
 				{sold && <div className={styles['sale']}>Продан</div>}
 				{favorites && <div className={styles['favorites']}><FavoritesAccentIcon/></div>}
 			</div>

@@ -1,0 +1,101 @@
+.wrapper {
+    margin: 80px 0;
+}
+
+.body {
+    display: flex;
+    gap: 60px;
+}
+
+.right-panel {
+    display: flex;
+    flex: 40%;
+    flex-direction: column;
+    gap: 60px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    color: var(--dark-gray);
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.price {
+    display: flex;
+    gap: 20px;
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    color: var(--accent);
+}
+
+.old-price {
+    color: var(--errors);
+    text-decoration: line-through;
+}
+
+.rating {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.count-block {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.count {
+    display: inline-flex;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 100px;
+    padding: 14px;
+
+    background: var(--light-gray);
+    border-radius: 4px;
+}
+
+.count button {
+    cursor: pointer;
+}
+
+.count-button {
+    width: 100%;
+}
+
+.social {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 35px;
+}
+
+.social hr {
+    width: 1px;
+    background: var(--gray);
+    border: none;
+}
+
+.info {
+    display: flex;
+    gap: 15px;
+}
+
+.sku,
+.category {
+    color: var(--black);
+}

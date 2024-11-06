@@ -35,18 +35,9 @@
 }
 
 .social {
-    display: grid;
     grid-area: social;
-    grid-template-columns: repeat(4, auto);
-    gap: 30px;
-    align-items: center;
     justify-content: end;
 }
-
-.social a {
-    display: flex;
-}
-
 
 @media (width <= 1024px) {
     .footer {

@@ -1,0 +1,15 @@
+.wrapper {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.star {
+    display: flex;
+    fill-rule: evenodd;
+}
+
+.filled {
+    fill-rule: nonzero;
+}

@@ -1,7 +1,9 @@
+import {Metadata} from 'next';
 import {getProducts} from '@/api/products';
 import {getProduct} from '@/api/product';
+import {getFilter} from '@/api/filter';
 import {notFound} from 'next/navigation';
-import {Metadata} from 'next';
+import CardPage from './components/CardPage/CardPage';
 
 export async function generateMetadata({params}: { params: Promise<{ sku: string }> }): Promise<Metadata> {
 	const {sku} = await params;
@@ -25,12 +27,15 @@ async function Page({params}: { params: Promise<{ sku: string }> }) {
 
 	const {sku} = await params;
 
+	const filter = await getFilter();
 	const product = await getProduct(sku);
 	if (!product) notFound();
 
+	const category = filter.categories.find(c => c.id === product.categoryId)?.name ?? '';
+
 	return (
 		<div>
-			{product.name}
+			<CardPage product={product} category={category}/>
 		</div>
 	);
 }

@@ -1,12 +1,9 @@
 'use client';
 
 import styles from './Footer.module.css';
-import LinkedInIcon from './icons/linkedin.svg';
-import FacebookIcon from './icons/facebook.svg';
-import InstagramIcon from './icons/instagram.svg';
-import TwitterIcon from './icons/twitter.svg';
 import Notice from '@/components/Notice/Notice';
 import Form from '@/components/Form/Form';
+import Social from '@/components/Social/Social';
 import Link from 'next/link';
 import {useState, useEffect} from 'react';
 
@@ -33,12 +30,7 @@ function Footer() {
 			<div className={styles['copy']}>
 				&copy; {new Date().getFullYear()} Shoppe
 			</div>
-			<div className={styles['social']}>
-				<Link aria-label={'LinkedIn'} href={'/'}><LinkedInIcon/></Link>
-				<Link aria-label={'Facebook'} href={'/'}><FacebookIcon/></Link>
-				<Link aria-label={'Instagram'} href={'/'}><InstagramIcon/></Link>
-				<Link aria-label={'Twitter'} href={'/'}><TwitterIcon/></Link>
-			</div>
+			<Social className={styles['social']}/>
 			<Notice open={open}>Ваш email подписан на новости и уведомления</Notice>
 		</footer>
 	);
