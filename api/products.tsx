@@ -4,7 +4,7 @@ import {Products} from '@/interfaces/products.interface';
 export async function getProducts(params?: productProps): Promise<Products> {
 
 	const queryParams = {
-		limit: '6',
+		limit: params?.limit?.toString() ?? '6',
 		offset: (params?.offset ?? 0).toString(),
 		name: params?.name ?? '',
 		priceMin: params?.priceMin?.toString() ?? '',
@@ -19,6 +19,7 @@ export async function getProducts(params?: productProps): Promise<Products> {
 
 
 interface productProps {
+	limit?: number;
 	offset?: number;
 	name?: string;
 	priceMin?: number;

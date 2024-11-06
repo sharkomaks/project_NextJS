@@ -13,7 +13,7 @@ import Link from 'next/link';
 
 function Card({product, favorites, sold, className}: CardProps) {
 
-	const {name, price, discount, images} = product;
+	const {name, price, discount, images, sku} = product;
 
 	const [open, setOpen] = useState<boolean>(false);
 
@@ -43,7 +43,7 @@ function Card({product, favorites, sold, className}: CardProps) {
 					animate={open ? 'visible' : 'hidden'}
 					className={styles['actions']}>
 					<Link href={'/'}><CartIcon/></Link>
-					<Link href={'/'}><EyeIcon/></Link>
+					<Link href={`/product/${sku}`}><EyeIcon/></Link>
 					<Link href={'/'}><FavoritesIcon/></Link>
 				</motion.div>
 				{!!discount && <div className={styles['sale']}>- {discount}%</div>}
