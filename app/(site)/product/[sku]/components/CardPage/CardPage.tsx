@@ -1,6 +1,7 @@
 'use client';
 
 import styles from './CardPage.module.css';
+// import './CardPage.css'
 import {CardPageProps} from './CardPage.props';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
