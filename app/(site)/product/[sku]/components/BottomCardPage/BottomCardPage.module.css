@@ -1,0 +1,112 @@
+.bottom {
+    display: grid;
+    grid-template:
+            'description-button reviews-button .'
+            'hr hr hr'
+            'data data data';
+    gap: 30px 80px
+}
+
+.description-button {
+    grid-area: description-button;
+}
+
+.reviews-button {
+    grid-area: reviews-button;
+}
+
+.description-button,
+.reviews-button {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    color: var(--dark-gray);
+}
+
+.hr {
+    grid-area: hr;
+    height: 1px;
+    background: var(--gray);
+    border: none;
+}
+
+.hr1,
+.hr2 {
+    display: none;
+}
+
+.hr1 {
+    grid-area: hr1;
+}
+
+.hr2 {
+    grid-area: hr2;
+}
+
+.active {
+    position: relative;
+    color: var(--black);
+}
+
+.active::after {
+    content: '';
+
+    position: absolute;
+    bottom: -31px;
+    left: 0;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--black);
+}
+
+.arrow {
+    display: none;
+    transition: all 0.4s;
+}
+
+.arrow-down {
+    rotate: 90deg;
+}
+
+.data {
+    overflow: hidden;
+    grid-area: data;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27px;
+    color: var(--dark-gray);
+}
+
+@media (width <= 1024px) {
+    .bottom {
+        display: block;
+    }
+
+    .description-button,
+    .reviews-button {
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .active::after {
+        display: none;
+    }
+
+    .hr1,
+    .hr2 {
+        display: block;
+    }
+
+    .arrow {
+        display: block
+    }
+}

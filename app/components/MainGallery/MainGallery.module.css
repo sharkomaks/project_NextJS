@@ -8,7 +8,7 @@
 
 .info {
     position: absolute;
-    top: 35%;
+    bottom: 30%;
     left: 40px;
 
     display: flex;
@@ -41,4 +41,35 @@
 
 .wrapper button:hover {
     background: var(--accent);
+}
+
+@media (width <= 1024px) {
+    .info {
+        bottom: 25px;
+        left: 10px;
+
+        gap: 3px;
+
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 26px;
+    }
+
+    .price {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+    }
+
+    .wrapper button {
+        align-self: start;
+
+        margin-top: 7px;
+        padding: 6px 10px;
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
 }

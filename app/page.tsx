@@ -1,10 +1,8 @@
-import MainGallery from './components/MainGallery/MainGallery';
+import MainPage from './components/MainPage/MainPage';
 
-export default function Home() {
+export default async function Home() {
 
 	return (
-		<div>
-			<MainGallery/>
-		</div>
+		<MainPage/>
 	);
 }
