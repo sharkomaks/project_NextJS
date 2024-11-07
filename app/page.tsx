@@ -1,4 +1,4 @@
-import MainGallery from '@/app/(site)/components/MainGallery/MainGallery';
+import MainGallery from './components/MainGallery/MainGallery';
 
 export default function Home() {
 

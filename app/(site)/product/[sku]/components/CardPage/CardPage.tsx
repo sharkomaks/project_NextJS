@@ -1,7 +1,7 @@
 'use client';
 
 import styles from './CardPage.module.css';
-// import './CardPage.css'
+import './CardPage.css';
 import {CardPageProps} from './CardPage.props';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
@@ -27,13 +27,13 @@ function CardPage({product, category}: CardPageProps) {
 
 	const rating = reviews.reduce((acc, r) => acc += r.rating, 0) / reviews.length;
 
-
 	return (
 		<div className={styles['wrapper']}>
 			<div className={styles['body']}>
 				<div>
 					<ImageGallery
 						items={img}
+						additionalClass={'gallery'}
 						showNav={false}
 						showBullets={true}
 						showPlayButton={false}

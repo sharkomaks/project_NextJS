@@ -16,12 +16,10 @@ export async function generateMetadata({params}: { params: Promise<{ sku: string
 	};
 }
 
-
 export async function generateStaticParams() {
 	const res = await getProducts({limit: 1000});
 	return res.products.map(p => ({sku: p.sku.toString()}));
 }
-
 
 async function Page({params}: { params: Promise<{ sku: string }> }) {
 
