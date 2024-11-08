@@ -1,6 +1,5 @@
 .wrapper {
     display: inline-flex;
-    gap: 10px;
     align-items: center;
     justify-content: center;
 }
@@ -10,6 +9,15 @@
     fill-rule: evenodd;
 }
 
+.star svg {
+    margin-right: 10px;
+    transition: all 0.4s;
+}
+
 .filled {
     fill-rule: nonzero;
+}
+
+.editable {
+    cursor: pointer;
 }

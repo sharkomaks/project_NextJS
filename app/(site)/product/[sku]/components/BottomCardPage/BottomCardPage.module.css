@@ -1,4 +1,5 @@
 .bottom {
+    overflow: hidden;
     display: grid;
     grid-template:
             'description-button reviews-button .'

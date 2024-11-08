@@ -8,7 +8,7 @@ import Reviews from './Reviews/Reviews';
 
 function BottomCardPage({product}: BottomCardPageProps) {
 
-	const {reviews, description} = product;
+	const {reviews, description, sku} = product;
 
 	const [open, setOpen] = useState<[boolean, boolean]>([false, false]);
 
@@ -56,7 +56,7 @@ function BottomCardPage({product}: BottomCardPageProps) {
 				variants={variants}
 				initial={open[1] ? 'visible' : 'hidden'}
 				animate={open[1] ? 'visible' : 'hidden'}>
-				<Reviews reviews={reviews}/>
+				<Reviews reviews={reviews} sku={sku}/>
 			</motion.div>
 			<hr className={cn(styles['hr'], styles['hr2'])}/>
 		</div>

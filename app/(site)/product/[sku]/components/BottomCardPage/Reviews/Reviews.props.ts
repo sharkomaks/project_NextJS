@@ -3,4 +3,5 @@ import {HTMLAttributes} from 'react';
 
 export interface ReviewsProps extends HTMLAttributes<HTMLDivElement> {
 	reviews: Review[];
+	sku: number;
 }

@@ -22,7 +22,7 @@ function Form({type, setOpen, submit, className, ...props}: FormProps) {
 		<form className={cn(styles['form'], className)} onSubmit={handleSubmit(submitSubscription)} {...props}>
 			<Input
 				{...register('line', {
-					required: {value: true, message: type === 'email' ? 'Заполните Email' : 'Заполните поле поиска'}
+					required: {value: true, message: type === 'email' ? 'Заполните email' : 'Заполните поле поиска'}
 				})}
 				type={type === 'email' ? 'email' : ''}
 				placeholder={errors.line

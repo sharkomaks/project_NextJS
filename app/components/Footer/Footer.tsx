@@ -5,19 +5,11 @@ import Notice from '@/components/Notice/Notice';
 import Form from '@/components/Form/Form';
 import Social from '@/components/Social/Social';
 import Link from 'next/link';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 function Footer() {
 
 	const [open, setOpen] = useState<boolean>(false);
-
-	useEffect(() => {
-		const timeoutId = setTimeout(() => {
-			setOpen(false);
-		}, 5000);
-
-		return () => clearTimeout(timeoutId);
-	}, [open]);
 
 	return (
 		<footer className={styles['footer']}>
@@ -31,7 +23,7 @@ function Footer() {
 				&copy; {new Date().getFullYear()} Shoppe
 			</div>
 			<Social className={styles['social']}/>
-			<Notice open={open}>Ваш email подписан на новости и уведомления</Notice>
+			<Notice open={open} setOpen={setOpen}>Ваш email подписан на новости и уведомления</Notice>
 		</footer>
 	);
 }

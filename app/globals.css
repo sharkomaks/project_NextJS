@@ -38,7 +38,8 @@ textarea::placeholder {
 }
 
 button,
-input {
+input,
+textarea {
     background: none;
     border: none;
 }

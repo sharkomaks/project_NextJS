@@ -3,9 +3,18 @@ import {NoticeProps} from './Notice.props';
 import CheckMarkIcon from './check-mark.svg';
 import cn from 'classnames';
 import {motion} from 'framer-motion';
+import {useEffect} from 'react';
 
 
-function Notice({open, className, children}: NoticeProps) {
+function Notice({open, setOpen, className, children}: NoticeProps) {
+
+	useEffect(() => {
+		const timeoutId = setTimeout(() => {
+			setOpen(false);
+		}, 5000);
+
+		return () => clearTimeout(timeoutId);
+	}, [open, setOpen]);
 
 	const variants = {
 		visible: {
