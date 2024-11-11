@@ -40,7 +40,7 @@ function Menu() {
 				})}>
 					Магазин
 				</Link>
-				<Link href={'/'} className={cn({
+				<Link href={'/about'} className={cn({
 					[styles['active']]: pathname.split('/')[1] === 'about'
 				})}>
 					О нас

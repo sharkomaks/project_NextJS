@@ -42,7 +42,7 @@
     background: var(--dark-gray) !important;
 }
 
-@media (max-width: 1024px) {
+@media (width <= 1024px) {
     .gallery .image-gallery-slide-wrapper {
         width: 100% !important;
     }

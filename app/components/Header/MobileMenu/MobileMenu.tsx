@@ -58,7 +58,7 @@ function MobileMenu() {
 				<SearchInput className={styles['input']}/>
 				<Link href={'/'}>Главная</Link>
 				<Link href={'/store'}>Магазин</Link>
-				<Link href={'/'}>О нас</Link>
+				<Link href={'/about'}>О нас</Link>
 				<hr className={styles['hr']}/>
 				<Link href={'/'}>
 					<LoginIcon/>
