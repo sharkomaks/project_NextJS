@@ -1,0 +1,75 @@
+.wrapper {
+    position: relative;
+}
+
+.wrapper img {
+    border-radius: 16px;
+}
+
+.info {
+    position: absolute;
+    bottom: 30%;
+    left: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    font-size: 33px;
+    font-weight: 500;
+    line-height: 43px;
+    color: var(--white);
+}
+
+.price {
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 35px;
+}
+
+.wrapper button {
+    align-self: start;
+
+    margin-top: 35px;
+    padding: 15px 50px;
+
+    color: var(--white);
+
+    background: none;
+    border: 1px solid var(--white);
+}
+
+.wrapper button:hover {
+    background: var(--accent);
+}
+
+@media (width <= 1024px) {
+    .info {
+        bottom: 25px;
+        left: 10px;
+
+        gap: 3px;
+
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 26px;
+    }
+
+    .price {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+    }
+
+    .wrapper button {
+        align-self: start;
+
+        margin-top: 7px;
+        padding: 6px 10px;
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 20px;
+    }
+
+}

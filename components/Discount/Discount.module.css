@@ -1,0 +1,11 @@
+.discount {
+    padding: 2px 8px;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--white);
+
+    background: var(--accent);
+    border-radius: 4px;
+}

@@ -1,0 +1,10 @@
+.social {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 30px;
+    align-items: center;
+}
+
+.social a {
+    display: flex;
+}

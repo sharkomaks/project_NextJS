@@ -1,0 +1,23 @@
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.star {
+    display: flex;
+    fill-rule: evenodd;
+}
+
+.star svg {
+    margin-right: 10px;
+    transition: all 0.4s;
+}
+
+.filled {
+    fill-rule: nonzero;
+}
+
+.editable {
+    cursor: pointer;
+}
