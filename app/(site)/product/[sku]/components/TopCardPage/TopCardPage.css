@@ -3,7 +3,7 @@
     border: 2px solid var(--accent);
 }
 
-.image-gallery-thumbnails-container {
+.gallery .image-gallery-thumbnails-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,4 +40,10 @@
 .gallery .image-gallery-bullet.active {
     transform: none !important;
     background: var(--dark-gray) !important;
+}
+
+@media (max-width: 1024px) {
+    .gallery .image-gallery-slide-wrapper {
+        width: 100% !important;
+    }
 }

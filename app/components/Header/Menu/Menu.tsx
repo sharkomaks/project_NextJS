@@ -67,9 +67,9 @@ function Menu() {
 				<Link aria-label={'Корзина'} href={'/'} className={cn(styles['icon'], {
 					[styles['active']]: pathname.split('/')[1] === 'cart'
 				})}>
-					<CartIcon count={1}/>
+					<CartIcon/>
 				</Link>
-				<Link aria-label={'Избранное'} href={'/'} className={cn(styles['icon'], {
+				<Link aria-label={'Избранное'} href={'/favorites'} className={cn(styles['icon'], {
 					[styles['active']]: pathname.split('/')[1] === 'favorites'
 				})}>
 					<FavoritesIcon/>

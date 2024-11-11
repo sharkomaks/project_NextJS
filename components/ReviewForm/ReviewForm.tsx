@@ -13,7 +13,7 @@ import Notice from '@/components/Notice/Notice';
 import {useForm, Controller} from 'react-hook-form';
 import {setReview} from '@/api/review';
 import {load, save} from '@/helpers/localStorage';
-import {KEY} from '@/helpers/key';
+import {dataKey} from '@/helpers/keys';
 
 function ReviewForm({sku}: ReviewFormProps) {
 
@@ -23,7 +23,7 @@ function ReviewForm({sku}: ReviewFormProps) {
 	const [message, setMessage] = useState<string>('');
 
 	useEffect(() => {
-		const savedData = load<{ name: string, email: string }>(KEY);
+		const savedData = load<{ name: string, email: string }>(dataKey);
 		if (savedData) {
 			reset({
 				name: savedData.name,
@@ -40,7 +40,7 @@ function ReviewForm({sku}: ReviewFormProps) {
 		}
 		if (enabled) {
 			const dataToSave = {name: data.name, email: data.email};
-			save(KEY, JSON.stringify(dataToSave));
+			save(dataKey, JSON.stringify(dataToSave));
 		}
 		reset();
 	};

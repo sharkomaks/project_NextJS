@@ -43,7 +43,7 @@ function MobileMenu() {
 				<div>
 					<Link href={'/'}><Logo/></Link>
 				</div>
-				<CartIcon count={1}/>
+				<CartIcon/>
 				<div className={styles['toggle']}>
 					{open
 						? <CloseIcon onClick={() => setOpen(false)}/>
@@ -64,7 +64,7 @@ function MobileMenu() {
 					<LoginIcon/>
 					Мой аккаунт
 				</Link>
-				<Link href={'/'}>
+				<Link href={'/favorites'}>
 					<FavoritesIcon/>
 					Избранное
 				</Link>
