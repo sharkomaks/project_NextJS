@@ -4,6 +4,8 @@ import {CartItem} from '@/interfaces/cart.iterface';
 
 export interface UserContextType {
 	addToCart: (sku: number, count?: number) => void;
+	subtractFromCart: (sku: number) => void;
+	removeFromCart: (sku: number) => void;
 	toggleToFavorites: (product: Product) => void;
 	dataCart: CartItem[];
 	dataFavorites: Product[];

@@ -9,8 +9,8 @@ export const UserContext = createContext<UserContextType>({} as UserContextType)
 
 export const UserContextProvider = ({children}: UserContextProps) => {
 
-	const [dataCart, setDataCart] = useLocalStorage<CartItem[]>(cartKey);
 	const [dataFavorites, setDataFavorites] = useLocalStorage<Product[]>(favoritesKey);
+	const [dataCart, setDataCart] = useLocalStorage<CartItem[]>(cartKey);
 
 	const toggleToFavorites = (product: Product) => {
 		const item = dataFavorites.find(f => f.sku === product.sku);
@@ -26,13 +26,34 @@ export const UserContextProvider = ({children}: UserContextProps) => {
 		if (!item) {
 			setDataCart([...dataCart, {sku, count: count ?? 1}]);
 		} else {
-			const newData = dataCart.map(c => c.sku === sku ? {...c, count: c.count += 1} : c);
+			const newData = dataCart.map(c => c.sku === sku ? {
+				...c,
+				count: count ? c.count + count : c.count + 1
+			} : c);
 			setDataCart(newData);
 		}
 	};
 
+	const subtractFromCart = (sku: number) => {
+		const item = dataCart.find(c => c.sku === sku);
+		if (!item) return;
+		const newData = dataCart.map(c => c.sku === sku ? {
+			...c,
+			count: c.count < 2 ? 1 : c.count - 1
+		} : c);
+		setDataCart(newData);
+	};
+
+	const removeFromCart = (sku: number) => {
+		const item = dataCart.find(c => c.sku === sku);
+		if (!item) return;
+		const newData = dataCart.filter(c => c.sku !== sku);
+		setDataCart(newData);
+	};
+
 	return (
-		<UserContext.Provider value={{ addToCart, toggleToFavorites, dataFavorites, dataCart}}>
+		<UserContext.Provider
+			value={{dataCart, addToCart, subtractFromCart, removeFromCart, toggleToFavorites, dataFavorites}}>
 			{children}
 		</UserContext.Provider>
 	);

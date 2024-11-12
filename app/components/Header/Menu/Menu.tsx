@@ -64,7 +64,7 @@ function Menu() {
 					onClick={() => setOpen(true)}>
 					<GlassIcon/>
 				</button>
-				<Link aria-label={'Корзина'} href={'/'} className={cn(styles['icon'], {
+				<Link aria-label={'Корзина'} href={'/cart'} className={cn(styles['icon'], {
 					[styles['active']]: pathname.split('/')[1] === 'cart'
 				})}>
 					<CartIcon/>

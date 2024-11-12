@@ -43,7 +43,7 @@ function MobileMenu() {
 				<div>
 					<Link href={'/'}><Logo/></Link>
 				</div>
-				<CartIcon/>
+				<Link href={'/cart'}><CartIcon/></Link>
 				<div className={styles['toggle']}>
 					{open
 						? <CloseIcon onClick={() => setOpen(false)}/>

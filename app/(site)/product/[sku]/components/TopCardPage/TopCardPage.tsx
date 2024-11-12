@@ -17,7 +17,7 @@ import {UserContext} from '@/context/user.context';
 
 function TopCardPage({product, category}: TopCardPageProps) {
 
-	const {toggleToFavorites, dataFavorites} = useContext(UserContext);
+	const {toggleToFavorites, dataFavorites, addToCart} = useContext(UserContext);
 	const [count, setCount] = useState<number>(1);
 	const {name, price, images, sku, description, reviews, discount} = product;
 
@@ -63,7 +63,8 @@ function TopCardPage({product, category}: TopCardPageProps) {
 						{count}
 						<button onClick={() => setCount(c => ++c)}>+</button>
 					</div>
-					<Button className={styles['count-button']}>Добавить в корзину</Button>
+					<Button onClick={() => addToCart(sku, count)}
+						className={styles['count-button']}>Добавить в корзину</Button>
 				</div>
 				<div className={styles['rating-block']}>
 					<div className={styles['rating']}>

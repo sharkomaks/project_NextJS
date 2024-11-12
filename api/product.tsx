@@ -1,7 +1,7 @@
 import {API} from '@/api/api';
 import {Product} from '@/interfaces/products.interface';
 
-export async function getProduct(sku: string): Promise<Product | undefined> {
+export async function getProduct(sku: number): Promise<Product | undefined> {
 
 	try {
 		const res = await fetch(API.product.find + `/${sku}`, {
