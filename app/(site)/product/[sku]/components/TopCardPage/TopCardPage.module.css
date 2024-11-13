@@ -114,6 +114,10 @@
     color: var(--black);
 }
 
+.favorite-button {
+    display: flex;
+}
+
 @media (width <= 1024px) {
     .top {
         display: grid;

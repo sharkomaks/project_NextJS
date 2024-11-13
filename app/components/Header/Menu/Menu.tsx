@@ -40,7 +40,7 @@ function Menu() {
 				})}>
 					Магазин
 				</Link>
-				<Link href={'/'} className={cn({
+				<Link href={'/about'} className={cn({
 					[styles['active']]: pathname.split('/')[1] === 'about'
 				})}>
 					О нас
@@ -64,12 +64,12 @@ function Menu() {
 					onClick={() => setOpen(true)}>
 					<GlassIcon/>
 				</button>
-				<Link aria-label={'Корзина'} href={'/'} className={cn(styles['icon'], {
+				<Link aria-label={'Корзина'} href={'/cart'} className={cn(styles['icon'], {
 					[styles['active']]: pathname.split('/')[1] === 'cart'
 				})}>
-					<CartIcon count={1}/>
+					<CartIcon/>
 				</Link>
-				<Link aria-label={'Избранное'} href={'/'} className={cn(styles['icon'], {
+				<Link aria-label={'Избранное'} href={'/favorites'} className={cn(styles['icon'], {
 					[styles['active']]: pathname.split('/')[1] === 'favorites'
 				})}>
 					<FavoritesIcon/>

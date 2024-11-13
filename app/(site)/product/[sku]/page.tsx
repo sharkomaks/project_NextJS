@@ -8,7 +8,7 @@ import CardPage from './components/CardPage/CardPage';
 export async function generateMetadata({params}: { params: Promise<{ sku: string }> }): Promise<Metadata> {
 	const {sku} = await params;
 
-	const product = await getProduct(sku);
+	const product = await getProduct(Number(sku));
 
 	return {
 		title: product?.name,
@@ -26,7 +26,7 @@ async function Page({params}: { params: Promise<{ sku: string }> }) {
 	const {sku} = await params;
 
 	const filter = await getFilter();
-	const product = await getProduct(sku);
+	const product = await getProduct(Number(sku));
 	if (!product) notFound();
 
 	const category = filter.categories.find(c => c.id === product.categoryId)?.name ?? '';

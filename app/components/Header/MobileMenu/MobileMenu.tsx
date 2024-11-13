@@ -43,7 +43,7 @@ function MobileMenu() {
 				<div>
 					<Link href={'/'}><Logo/></Link>
 				</div>
-				<CartIcon count={1}/>
+				<Link href={'/cart'}><CartIcon/></Link>
 				<div className={styles['toggle']}>
 					{open
 						? <CloseIcon onClick={() => setOpen(false)}/>
@@ -58,13 +58,13 @@ function MobileMenu() {
 				<SearchInput className={styles['input']}/>
 				<Link href={'/'}>Главная</Link>
 				<Link href={'/store'}>Магазин</Link>
-				<Link href={'/'}>О нас</Link>
+				<Link href={'/about'}>О нас</Link>
 				<hr className={styles['hr']}/>
 				<Link href={'/'}>
 					<LoginIcon/>
 					Мой аккаунт
 				</Link>
-				<Link href={'/'}>
+				<Link href={'/favorites'}>
 					<FavoritesIcon/>
 					Избранное
 				</Link>
