@@ -8,6 +8,7 @@ import Link from 'next/link';
 import {useState} from 'react';
 
 function Footer() {
+
 	const [open, setOpen] = useState<boolean>(false);
 
 	return (

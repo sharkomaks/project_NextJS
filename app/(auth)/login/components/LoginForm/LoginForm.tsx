@@ -71,7 +71,7 @@ function LoginForm() {
 					<span className={cn(styles['error-message'], styles['login-error'])}>{error}</span>}
 			</form>
 			<div className={styles['forgot-password']}>
-				<Link href={'/'}>Забыли пароль?</Link>
+				<Link href={'/recovery'}>Забыли пароль?</Link>
 			</div>
 		</>
 	);
