@@ -43,7 +43,8 @@
     margin-bottom: 20px;
 }
 
-.body a {
+.body a,
+.body button {
     display: inline-flex;
     gap: 5px;
     align-items: center;

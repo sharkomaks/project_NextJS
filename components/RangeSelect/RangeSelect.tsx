@@ -18,7 +18,7 @@ function RangeSelect({max, setPriceRange, ...props}: RangeSelectProps) {
 
 	useEffect(() => {
 		setPriceRange({min: Number(minNum), max: Number(maxNum)});
-	}, [minNum, maxNum]);
+	}, [minNum, maxNum, setPriceRange]);
 
 	return (
 		<div {...props}>

@@ -9,30 +9,42 @@ function About() {
 				<Htag tag={'h1'}>О нас</Htag>
 				<Htag tag={'h3'}>Мы делаем шикарные украшения для вас</Htag>
 			</div>
-			<div>Duis rutrum dictum libero quis rutrum. Etiam sed neque aliquam, sollicitudin ante a, gravida arcu. Nam
-				fringilla molestie velit, eget pellentesque risus scelerisque a. Nam ac urna maximus, tempor magna et,
-				placerat urna. Curabitur eu magna enim. Proin placerat tortor lacus, ac sodales lectus placerat quis.
+			<div>
+				Мы создаем уникальные украшения, которые подчеркивают вашу индивидуальность. Каждое изделие
+				изготавливается с учетом последних тенденций моды и желаний наших клиентов.
 			</div>
 			<div className={styles['block']}>
 				<Htag tag={'h2'}>Тренды в украшениях</Htag>
-				<img src="/img3.png" alt=""/>
+				<img src="/img3.png" alt="Картинка укращения"/>
 			</div>
 			<div>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat, augue a volutpat hendrerit,
-				sapien tortor faucibus augue, a maximus elit ex vitae libero. Sed quis mauris eget arcu facilisis
-				consequat sed eu felis.
+				В этом сезоне актуальны изысканные минималистичные дизайны и смелые сочетания материалов. Наши мастера
+				воплощают современные идеи в элегантных украшениях, подходящих для любого случая.
 				<ul>
-					<li>consectetur adipiscing elit. Aliquam placerat</li>
-					<li>Lorem ipsum dolor sit amet consectetur</li>
+					<li>
+						Минимализм в дизайне украшений остается в тренде, создавая легкость и элегантность в образах.
+					</li>
+					<li>
+						Сочетание золота и серебра становится все более популярным, создавая интересные контрасты и
+						подчеркивая стиль.
+					</li>
+					<li>
+						Геометрические формы и четкие линии преобладают в современных украшениях, предлагая новые
+						эстетические решения.
+					</li>
+					<li>
+						Украшения с природными камнями добавляют натуральности и индивидуальности, создавая уникальные
+						образы.
+					</li>
 				</ul>
 			</div>
 			<div className={styles['block']}>
 				<Htag tag={'h2'}>Сделано с любовью</Htag>
-				<img src="/img2.png" alt=""/>
+				<img src="/img2.png" alt="Картинка укращения"/>
 			</div>
-			<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat, augue a volutpat hendrerit,
-				sapien tortor faucibus augue, a maximus elit ex vitae libero. Sed quis mauris eget arcu facilisis
-				consequat sed eu felis. Nunc sed porta augue. Morbi porta tempor odio, in molestie diam bibendu.
+			<div>
+				Каждое изделие проходит тщательную проверку качества. Мы гордимся своей работой и хотим, чтобы вы
+				чувствовали себя особенными, выбирая наши украшения.
 			</div>
 		</div>
 	);

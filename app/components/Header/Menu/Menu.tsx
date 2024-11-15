@@ -7,14 +7,16 @@ import FavoritesIcon from '../icons/favorites.svg';
 import LoginIcon from '../icons/login.svg';
 import Link from 'next/link';
 import {motion} from 'framer-motion';
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import cn from 'classnames';
 import SearchInput from '@/components/SearchInput/SearchInput';
 import CartIcon from '@/components/CartIcon/CartIcon';
 import {usePathname} from 'next/navigation';
+import {UserContext} from '@/context/user.context';
 
 function Menu() {
 
+	const {profile} = useContext(UserContext);
 	const [open, setOpen] = useState<boolean>(false);
 	const pathname = usePathname();
 
@@ -74,11 +76,16 @@ function Menu() {
 				})}>
 					<FavoritesIcon/>
 				</Link>
-				<Link aria-label={'Вход'} href={'/'} className={cn(styles['icon'], {
+				{!profile && <Link aria-label={'Вход'} href={'/login'} className={cn(styles['icon'], {
 					[styles['active']]: pathname.split('/')[1] === 'login'
 				})}>
 					<LoginIcon/>
-				</Link>
+				</Link>}
+				{profile && <Link aria-label={'Профиль'} href={'/profile'} className={cn(styles['icon'], {
+					[styles['active']]: pathname.split('/')[1] === 'profile'
+				})}>
+					<LoginIcon/>
+				</Link>}
 			</div>
 		</nav>
 	);

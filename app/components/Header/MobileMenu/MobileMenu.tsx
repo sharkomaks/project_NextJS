@@ -4,18 +4,21 @@ import styles from './MobileMenu.module.css';
 import Logo from '../icons/logo.svg';
 import MenuIcon from './menu.svg';
 import CloseIcon from './close.svg';
+import ExitIcon from './exit.svg';
 import LoginIcon from '../icons/login.svg';
 import FavoritesIcon from '../icons/favorites.svg';
 import Link from 'next/link';
 import CartIcon from '@/components/CartIcon/CartIcon';
 import SearchInput from '@/components/SearchInput/SearchInput';
 import {motion} from 'framer-motion';
-import {useEffect, useState} from 'react';
-import {usePathname} from 'next/navigation';
-
+import {useContext, useEffect, useState} from 'react';
+import {usePathname, useRouter} from 'next/navigation';
+import {UserContext} from '@/context/user.context';
 
 function MobileMenu() {
 
+	const router = useRouter();
+	const {profile, setJwt, setProfile} = useContext(UserContext);
 	const [open, setOpen] = useState<boolean>(false);
 	const pathname = usePathname();
 
@@ -35,6 +38,13 @@ function MobileMenu() {
 			opacity: 0,
 			x: '100%'
 		}
+	};
+
+	const onClick = () => {
+		setJwt('');
+		setProfile(null);
+		router.push('/');
+		setOpen(false);
 	};
 
 	return (
@@ -60,14 +70,22 @@ function MobileMenu() {
 				<Link href={'/store'}>Магазин</Link>
 				<Link href={'/about'}>О нас</Link>
 				<hr className={styles['hr']}/>
-				<Link href={'/'}>
+				{!profile && <Link href={'/login'}>
+					<LoginIcon/>
+					Вход
+				</Link>}
+				{profile && <Link href={'/profile'}>
 					<LoginIcon/>
 					Мой аккаунт
-				</Link>
+				</Link>}
 				<Link href={'/favorites'}>
 					<FavoritesIcon/>
 					Избранное
 				</Link>
+				{profile && <button onClick={onClick}>
+					<ExitIcon/>
+					Выход
+				</button>}
 			</motion.div>
 		</nav>
 	);

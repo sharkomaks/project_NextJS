@@ -5,6 +5,7 @@ import {calculateOldPrice} from '@/helpers/oldPrice';
 import Htag from '@/components/Htag/Htag';
 import {useContext} from 'react';
 import {UserContext} from '@/context/user.context';
+import Link from 'next/link';
 
 function CartItem({product}: CartItemProps) {
 
@@ -15,7 +16,9 @@ function CartItem({product}: CartItemProps) {
 	return (
 		<>
 			<div className={styles['cart-item']}>
-				<img src={images[0]} alt={product.name}/>
+				<Link href={`/product/${sku}`}>
+					<img src={images[0]} alt={product.name}/>
+				</Link>
 				<div className={styles['block']}>
 					<div className={styles['name']}>
 						<Htag tag={'h3'}>{name}</Htag>

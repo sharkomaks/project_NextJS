@@ -1,11 +1,11 @@
 <svg width="21.000000" height="21.000000" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <clipPath id="clip77_849">
-            <rect id="shopping-cart 1" rx="-0.500000" width="20.000000" height="20.000000"
+            <rect id="shopping-cart 1" rx="0.500000" width="20.000000" height="20.000000"
                   transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/>
         </clipPath>
     </defs>
-    <rect id="shopping-cart 1" rx="-0.500000" width="20.000000" height="20.000000"
+    <rect id="shopping-cart 1" rx="0.500000" width="20.000000" height="20.000000"
           transform="translate(0.500000 0.500000)" fill="#FFFFFF" fill-opacity="0"/>
     <g clip-path="url(#clip77_849)">
         <path id="Vector"

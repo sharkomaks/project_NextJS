@@ -1,6 +1,7 @@
 import {ReactNode} from 'react';
 import {Product} from '@/interfaces/products.interface';
-import {CartItem} from '@/interfaces/cart.iterface';
+import {CartItem} from '@/interfaces/cart.interface';
+import {Profile} from '@/interfaces/profile';
 
 export interface UserContextType {
 	addToCart: (sku: number, count?: number) => void;
@@ -9,6 +10,10 @@ export interface UserContextType {
 	toggleToFavorites: (product: Product) => void;
 	dataCart: CartItem[];
 	dataFavorites: Product[];
+	profile: Profile | null;
+	jwt: string;
+	setJwt: (jwt: string) => void;
+	setProfile: (data: Profile | null) => void;
 }
 
 export interface UserContextProps {
