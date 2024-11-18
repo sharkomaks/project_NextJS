@@ -7,12 +7,14 @@ import {CartFormInterface} from './CartForm.interface';
 import Htag from '@/components/Htag/Htag';
 import {useContext, useEffect} from 'react';
 import {UserContext} from '@/context/user.context';
-import {updateProfile} from '@/api/updateProfile';
-import {createOrder} from '@/api/createOrder';
+import {updateProfile} from '@/api/profile';
+import {createOrder} from '@/api/order';
 import {setRegister} from '@/api/register';
+import {useRouter} from 'next/navigation';
 
 function CartForm({cart, totalPrice}: CartFormProps) {
 
+	const router = useRouter();
 	const {jwt, setJwt, profile, setProfile, dataCart, setDataCart} = useContext(UserContext);
 	const {register, handleSubmit, formState: {errors}, reset, clearErrors} = useForm<CartFormInterface>();
 	const updatedCart = cart.map(i => ({
@@ -44,7 +46,7 @@ function CartForm({cart, totalPrice}: CartFormProps) {
 			setProfile(updatedProfile);
 			const order = await createOrder(jwt, updatedCart);
 			setDataCart([]);
-			console.log(order);
+			router.push(`/order-success?orderId=${order.id}`);
 		}
 		if (!jwt || !profile) {
 			const register = await setRegister(data);
@@ -52,7 +54,7 @@ function CartForm({cart, totalPrice}: CartFormProps) {
 			setJwt(register.access_token);
 			const order = await createOrder(register.access_token, updatedCart);
 			setDataCart([]);
-			console.log(order);
+			router.push(`/order-success?orderId=${order.id}`);
 		}
 	};
 
