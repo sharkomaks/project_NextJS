@@ -2,7 +2,7 @@ import {ReviewFormInterface} from '@/components/ReviewForm/ReviewForm.interface'
 import {API} from '@/api/api';
 
 
-export async function setReview(sku: number, data: ReviewFormInterface): Promise<ReviewResponse | undefined> {
+export async function setReview(sku: number, data: ReviewFormInterface): Promise<ReviewResponse | null> {
 
 	try {
 		const res = await fetch(`${API.product.find}/${sku}/review`, {
@@ -22,6 +22,7 @@ export async function setReview(sku: number, data: ReviewFormInterface): Promise
 			return Promise.reject(e);
 		}
 	}
+	return null;
 }
 
 interface ReviewResponse {

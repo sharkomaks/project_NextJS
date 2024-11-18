@@ -5,6 +5,7 @@ import {Profile} from '@/interfaces/profile';
 
 export interface UserContextType {
 	addToCart: (sku: number, count?: number) => void;
+	setDataCart: (data: CartItem[]) => void;
 	subtractFromCart: (sku: number) => void;
 	removeFromCart: (sku: number) => void;
 	toggleToFavorites: (product: Product) => void;

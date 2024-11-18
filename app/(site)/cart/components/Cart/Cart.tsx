@@ -1,13 +1,14 @@
 'use client';
 
 import styles from './Cart.module.css';
-import {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {getProduct} from '@/api/product';
 import {Product} from '@/interfaces/products.interface';
 import {UserContext} from '@/context/user.context';
 import Htag from '@/components/Htag/Htag';
 import CartItem from '../CartItem/CartItem';
 import CartForm from '../CartForm/CartForm';
+import Link from 'next/link';
 
 function Cart() {
 
@@ -34,10 +35,18 @@ function Cart() {
 	return (
 		<div className={styles['wrapper']}>
 			<Htag tag={'h1'}>Корзина</Htag>
-			<div className={styles['cart-list']}>
-				{cart.map(p => <CartItem key={p.sku} product={p}/>)}
-			</div>
-			<CartForm totalPrice={totalCount}/>
+			{!dataCart.length &&
+				<div className={styles['empty-cart']}>
+					<Htag tag={'h2'}>В корзине пока ничего нет</Htag>
+					<Link href={'/store'}>Перейти в каталог</Link>
+				</div>}
+			{!!dataCart.length &&
+				<>
+					<div className={styles['cart-list']}>
+						{cart.map(p => <CartItem key={p.sku} product={p}/>)}
+					</div>
+					<CartForm cart={cart} totalPrice={totalCount}/>
+				</>}
 		</div>
 	);
 }

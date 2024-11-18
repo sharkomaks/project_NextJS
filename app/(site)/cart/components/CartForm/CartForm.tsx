@@ -8,11 +8,18 @@ import Htag from '@/components/Htag/Htag';
 import {useContext, useEffect} from 'react';
 import {UserContext} from '@/context/user.context';
 import {updateProfile} from '@/api/updateProfile';
+import {createOrder} from '@/api/createOrder';
+import {setRegister} from '@/api/register';
 
-function CartForm({totalPrice}: CartFormProps) {
+function CartForm({cart, totalPrice}: CartFormProps) {
 
-	const {jwt, profile, setProfile} = useContext(UserContext);
+	const {jwt, setJwt, profile, setProfile, dataCart, setDataCart} = useContext(UserContext);
 	const {register, handleSubmit, formState: {errors}, reset, clearErrors} = useForm<CartFormInterface>();
+	const updatedCart = cart.map(i => ({
+		name: i.name,
+		price: i.price,
+		count: dataCart.find(c => c.sku === i.sku)?.count ?? 0
+	}));
 
 	useEffect(() => {
 		if (profile) {
@@ -24,7 +31,10 @@ function CartForm({totalPrice}: CartFormProps) {
 		}
 	}, [profile, reset]);
 
-	const createOrder = async (data: CartFormInterface) => {
+	const sendOrder = async (data: CartFormInterface) => {
+		if (!updatedCart.length) {
+			return;
+		}
 		if (jwt && profile) {
 			const updatedProfile = await updateProfile(jwt, {
 				name: data.name,
@@ -32,11 +42,22 @@ function CartForm({totalPrice}: CartFormProps) {
 				address: data.address
 			});
 			setProfile(updatedProfile);
+			const order = await createOrder(jwt, updatedCart);
+			setDataCart([]);
+			console.log(order);
+		}
+		if (!jwt || !profile) {
+			const register = await setRegister(data);
+			if ('message' in register) return;
+			setJwt(register.access_token);
+			const order = await createOrder(register.access_token, updatedCart);
+			setDataCart([]);
+			console.log(order);
 		}
 	};
 
 	return (
-		<form onSubmit={handleSubmit(createOrder)} className={styles['cart-form']}>
+		<form onSubmit={handleSubmit(sendOrder)} className={styles['cart-form']}>
 			{!profile?.email && <div className={styles['email']}>
 				<Input
 					{...register('email', {required: {value: true, message: 'Заполните email'}})}

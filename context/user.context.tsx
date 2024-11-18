@@ -78,6 +78,7 @@ export const UserContextProvider = ({children}: UserContextProps) => {
 		<UserContext.Provider
 			value={{
 				dataCart,
+				setDataCart,
 				addToCart,
 				subtractFromCart,
 				removeFromCart,
