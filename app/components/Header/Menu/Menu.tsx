@@ -34,15 +34,15 @@ function Menu() {
 	return (
 		<nav className={styles['menu']}>
 			<div>
-				<Link aria-label={'Главная страница'} href={'/'}><Logo/></Link>
+				<Link aria-label={'Переход на главную страницу сайта'} href={'/'}><Logo/></Link>
 			</div>
 			<div className={styles['left-panel']}>
-				<Link href={'/store'} className={cn({
+				<Link aria-label={'Переход на страницу каталога'} href={'/store'} className={cn({
 					[styles['active']]: pathname.split('/')[1] === 'store'
 				})}>
 					Магазин
 				</Link>
-				<Link href={'/about'} className={cn({
+				<Link aria-label={'Переход на страницу о нас'} href={'/about'} className={cn({
 					[styles['active']]: pathname.split('/')[1] === 'about'
 				})}>
 					О нас
@@ -66,26 +66,30 @@ function Menu() {
 					onClick={() => setOpen(true)}>
 					<GlassIcon/>
 				</button>
-				<Link aria-label={'Корзина'} href={'/cart'} className={cn(styles['icon'], {
+				<Link aria-label={'Переход на страницу с корзиной'} href={'/cart'} className={cn(styles['icon'], {
 					[styles['active']]: pathname.split('/')[1] === 'cart'
 				})}>
 					<CartIcon/>
 				</Link>
-				<Link aria-label={'Избранное'} href={'/favorites'} className={cn(styles['icon'], {
+				<Link aria-label={'Переход на страницу с избранным'} href={'/favorites'} className={cn(styles['icon'], {
 					[styles['active']]: pathname.split('/')[1] === 'favorites'
 				})}>
 					<FavoritesIcon/>
 				</Link>
-				{!profile && <Link aria-label={'Вход'} href={'/login'} className={cn(styles['icon'], {
-					[styles['active']]: pathname.split('/')[1] === 'login'
-				})}>
-					<LoginIcon/>
-				</Link>}
-				{profile && <Link aria-label={'Профиль'} href={'/profile'} className={cn(styles['icon'], {
-					[styles['active']]: pathname.split('/')[1] === 'profile'
-				})}>
-					<LoginIcon/>
-				</Link>}
+				{!profile &&
+					<Link aria-label={'Переход на страницу входа'} href={'/login'} className={cn(styles['icon'], {
+						[styles['active']]: pathname.split('/')[1] === 'login'
+					})}>
+						<LoginIcon/>
+					</Link>}
+				{profile &&
+					<Link aria-label={'Переход на страницу профиля'}
+						  href={'/profile'}
+						  className={cn(styles['icon'], {
+							  [styles['active']]: pathname.split('/')[1] === 'profile'
+						  })}>
+						<LoginIcon/>
+					</Link>}
 			</div>
 		</nav>
 	);

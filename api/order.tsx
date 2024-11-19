@@ -33,3 +33,14 @@ export async function findOrder(jwt: string, orderId: number): Promise<OrderResp
 	}
 	return null;
 }
+
+export async function getOrders(jwt: string): Promise<OrderResponse[]> {
+
+	const res = await fetch(API.order.orders, {
+		headers: {
+			Authorization: `Bearer ${jwt}`,
+			'Content-Type': 'application/json'
+		}
+	});
+	return res.json();
+}

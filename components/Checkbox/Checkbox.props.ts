@@ -5,4 +5,5 @@ export interface CheckboxProps {
 	setEnabled: (enabled: boolean) => void;
 	login?: boolean;
 	error?: FieldError;
+	register?: boolean;
 }

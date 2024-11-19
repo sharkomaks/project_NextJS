@@ -22,8 +22,8 @@ function TopCardPage({product, category}: TopCardPageProps) {
 	const {name, price, images, sku, description, reviews, discount} = product;
 
 	const img = images.map(i => ({
-		original: i,
-		thumbnail: i
+		original: i, originalAlt: 'Картинка c украшением',
+		thumbnail: i, thumbnailAlt: 'Картинка c украшением'
 	}));
 
 	const rating = reviews.reduce((acc, r) => acc += r.rating, 0) / reviews.length;
@@ -63,8 +63,11 @@ function TopCardPage({product, category}: TopCardPageProps) {
 						{count}
 						<button onClick={() => setCount(c => ++c)}>+</button>
 					</div>
-					<Button onClick={() => addToCart(sku, count)}
-						className={styles['count-button']}>Добавить в корзину</Button>
+					<Button
+						onClick={() => addToCart(sku, count)}
+						className={styles['count-button']}>
+						Добавить в корзину
+					</Button>
 				</div>
 				<div className={styles['rating-block']}>
 					<div className={styles['rating']}>
@@ -76,7 +79,9 @@ function TopCardPage({product, category}: TopCardPageProps) {
 				</div>
 				<div className={styles['social-block']}>
 					<div className={styles['social']}>
-						<button className={styles['favorite-button']}
+						<button
+							aria-label={favorite ? 'Убрать из избранного' : 'Добавить в избранное'}
+							className={styles['favorite-button']}
 							onClick={() => toggleToFavorites(product)}>
 							{favorite
 								? <FavoritesAccentIcon/>

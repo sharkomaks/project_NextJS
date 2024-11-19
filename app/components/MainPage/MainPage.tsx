@@ -14,7 +14,7 @@ async function MainPage() {
 			<MainGallery/>
 			<div className={styles['title']}>
 				<Htag tag={'h1'}>Последние поступления</Htag>
-				<Link href={'/store'}>Все</Link>
+				<Link aria-label={'Переход на страницу каталога'} href={'/store'}>Все</Link>
 			</div>
 			<div className={styles['card-list']}>
 				{res.products.map((p, i) => <Card key={i} product={p}/>)}

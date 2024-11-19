@@ -38,7 +38,7 @@ function Cart() {
 			{!dataCart.length &&
 				<div className={styles['empty-cart']}>
 					<Htag tag={'h2'}>В корзине пока ничего нет</Htag>
-					<Link href={'/store'}>Перейти в каталог</Link>
+					<Link aria-label={'Переход на страницу каталога'} href={'/store'}>Перейти в каталог</Link>
 				</div>}
 			{!!dataCart.length &&
 				<>

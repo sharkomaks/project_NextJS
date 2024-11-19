@@ -6,9 +6,10 @@ import cn from 'classnames';
 import {forwardRef} from 'react';
 
 const Checkbox = forwardRef<HTMLSpanElement, CheckboxProps>(
-	function Checkbox({enabled, setEnabled, login = false, error = false}, ref) {
+	function Checkbox({enabled, setEnabled, login = false, error = false, register}, ref) {
 		return (
 			<Component ref={ref}
+					   aria-label={register ? 'Согласен на обработку персональных данных' : 'Запомнить меня'}
 					   checked={enabled ? enabled : false}
 					   onChange={setEnabled}
 					   className={cn(styles['checkbox'], {

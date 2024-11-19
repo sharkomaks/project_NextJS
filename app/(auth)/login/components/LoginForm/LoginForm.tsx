@@ -1,5 +1,5 @@
 import styles from './LoginForm.module.css';
-import {useContext, useState} from 'react';
+import {useContext, useState, KeyboardEvent} from 'react';
 import EyeIcon from '../icons/eye-icon.svg';
 import CrossedEyeIcon from '../icons/crossed-eye-icon.svg';
 import Input from '@/components/Input/Input';
@@ -38,6 +38,12 @@ function LoginForm() {
 		reset();
 	};
 
+	const spaceHandle = (e: KeyboardEvent<HTMLDivElement>) => {
+		if (e.code === 'Space') {
+			setOpen(o => !o);
+		}
+	};
+
 	return (
 		<>
 			<form onSubmit={handleSubmit(sendLoginForm)} className={styles['login-form']}>
@@ -55,6 +61,8 @@ function LoginForm() {
 						type={open ? 'text' : 'password'}
 						placeholder={errors.password ? '' : 'Пароль'}/>
 					<div
+						tabIndex={0}
+						onKeyDown={spaceHandle}
 						onClick={() => setOpen(o => !o)}
 						className={styles['password-button']}>
 						{open ? <EyeIcon/> : <CrossedEyeIcon/>}
@@ -71,7 +79,9 @@ function LoginForm() {
 					<span className={cn(styles['error-message'], styles['login-error'])}>{error}</span>}
 			</form>
 			<div className={styles['forgot-password']}>
-				<Link href={'/recovery'}>Забыли пароль?</Link>
+				<Link aria-label={'Переход на страницу с постановлением пароля'} href={'/recovery'}>
+					Забыли пароль?
+				</Link>
 			</div>
 		</>
 	);

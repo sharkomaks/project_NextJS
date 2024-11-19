@@ -44,13 +44,16 @@ function Card({product, sold, className}: CardProps) {
 					initial={'hidden'}
 					animate={open ? 'visible' : 'hidden'}
 					className={styles['actions']}>
-					<button onClick={() => addToCart(sku)}><CartIcon/></button>
-					<Link href={`/product/${sku}`}><EyeIcon/></Link>
-					<button onClick={() => toggleToFavorites(product)}><FavoritesIcon/></button>
+					<button aria-label={'Добавить в корзину'} onClick={() => addToCart(sku)}><CartIcon/></button>
+					<Link aria-label={'Переход на страницу товара'} href={`/product/${sku}`}><EyeIcon/></Link>
+					<button aria-label={'Добавить в избранное'} onClick={() => toggleToFavorites(product)}>
+						<FavoritesIcon/>
+					</button>
 				</motion.div>
 				{!!discount && <Discount className={styles['sale']} discount={discount}/>}
 				{sold && <div className={styles['sale']}>Продан</div>}
 				{favorite && <button
+					aria-label={'Убрать из избранного'}
 					onClick={() => toggleToFavorites(product)}
 					className={styles['favorites']}>
 					<FavoritesAccentIcon/>
@@ -59,7 +62,7 @@ function Card({product, sold, className}: CardProps) {
 			<div className={styles['name']}>{name}</div>
 			<div className={styles['price-wrapper']}>
 				{!!discount &&
-						<div className={styles['old-price']}>${calculateOldPrice(price, discount).toFixed(2)}</div>}
+					<div className={styles['old-price']}>${calculateOldPrice(price, discount).toFixed(2)}</div>}
 				<div className={styles['price']}>${price.toFixed(2)}</div>
 			</div>
 		</div>

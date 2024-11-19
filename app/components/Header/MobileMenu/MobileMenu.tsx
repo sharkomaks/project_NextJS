@@ -51,10 +51,10 @@ function MobileMenu() {
 		<nav className={styles['mobile-menu']}>
 			<div className={styles['head']}>
 				<div>
-					<Link href={'/'}><Logo/></Link>
+					<Link aria-label={'Переход на главную страницу сайта'} href={'/'}><Logo/></Link>
 				</div>
-				<Link href={'/cart'}><CartIcon/></Link>
-				<div className={styles['toggle']}>
+				<Link aria-label={'Переход на страницу с корзиной'} href={'/cart'}><CartIcon/></Link>
+				<div aria-label={'Кнопка открытия мобильного меню'} className={styles['toggle']}>
 					{open
 						? <CloseIcon onClick={() => setOpen(false)}/>
 						: <MenuIcon onClick={() => setOpen(true)}/>}
@@ -66,23 +66,23 @@ function MobileMenu() {
 				animate={open ? 'opened' : 'closed'}
 				className={styles['body']}>
 				<SearchInput className={styles['input']}/>
-				<Link href={'/'}>Главная</Link>
-				<Link href={'/store'}>Магазин</Link>
-				<Link href={'/about'}>О нас</Link>
+				<Link aria-label={'Переход на главную страницу сайта'} href={'/'}>Главная</Link>
+				<Link aria-label={'Переход на страницу каталога'} href={'/store'}>Магазин</Link>
+				<Link aria-label={'Переход на страницу о нас'} href={'/about'}>О нас</Link>
 				<hr className={styles['hr']}/>
-				{!profile && <Link href={'/login'}>
+				{!profile && <Link aria-label={'Переход на страницу входа'} href={'/login'}>
 					<LoginIcon/>
 					Вход
 				</Link>}
-				{profile && <Link href={'/profile'}>
+				{profile && <Link aria-label={'Переход на страницу профиля'} href={'/profile'}>
 					<LoginIcon/>
 					Мой аккаунт
 				</Link>}
-				<Link href={'/favorites'}>
+				<Link aria-label={'Переход на страницу с избранным'} href={'/favorites'}>
 					<FavoritesIcon/>
 					Избранное
 				</Link>
-				{profile && <button onClick={onClick}>
+				{profile && <button aria-label={'Кнопка выхода из профиля'} onClick={onClick}>
 					<ExitIcon/>
 					Выход
 				</button>}
