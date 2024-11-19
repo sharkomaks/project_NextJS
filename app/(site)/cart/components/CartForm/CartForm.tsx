@@ -45,8 +45,8 @@ function CartForm({cart, totalPrice}: CartFormProps) {
 			});
 			setProfile(updatedProfile);
 			const order = await createOrder(jwt, updatedCart);
-			setDataCart([]);
 			router.push(`/order-success?orderId=${order.id}`);
+			setDataCart([]);
 		}
 		if (!jwt || !profile) {
 			const register = await setRegister(data);
