@@ -8,6 +8,7 @@ import {OrderResponse} from '@/interfaces/order.interface';
 import {findOrder} from '@/api/order';
 import CheckIcon from './check.svg';
 import Htag from '@/components/Htag/Htag';
+import {formatDate} from '@/helpers/formatDate';
 
 function OrderSuccess() {
 
@@ -25,12 +26,6 @@ function OrderSuccess() {
 			fetchOrder();
 		}
 	}, [jwt, orderId]);
-
-	const newDate = order?.createdAt ? new Intl.DateTimeFormat('ru-RU', {
-		day: 'numeric',
-		month: 'long',
-		year: 'numeric'
-	}).format(new Date(order.createdAt)).replace('г.', '') : '';
 
 	const totalPrice = order?.data ? order.data.reduce((acc, o) => acc += (o.price * o.count), 0) : 0;
 
@@ -54,7 +49,7 @@ function OrderSuccess() {
 					</div>
 					<div className={styles['detail-field']}>
 						<div>Дата заказа</div>
-						<div className={styles['detail-data']}>{newDate}</div>
+						<div className={styles['detail-data']}>{order ? formatDate(order.createdAt) : ''}</div>
 					</div>
 					<div className={styles['detail-field']}>
 						<div>Адрес доставки</div>

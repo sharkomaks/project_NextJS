@@ -9,6 +9,7 @@ import Htag from '@/components/Htag/Htag';
 import cn from 'classnames';
 import {motion} from 'framer-motion';
 import {useRouter} from 'next/navigation';
+import {formatDate} from '@/helpers/formatDate';
 
 function Profile() {
 
@@ -36,14 +37,6 @@ function Profile() {
 			opacity: 0,
 			height: 0
 		}
-	};
-
-	const formatedDate = (date: string) => {
-		return new Intl.DateTimeFormat('ru-RU', {
-			day: 'numeric',
-			month: 'long',
-			year: 'numeric'
-		}).format(new Date(date)).replace('г.', '');
 	};
 
 	const calculateTotalPrice = (data: Order[]) => {
@@ -86,7 +79,7 @@ function Profile() {
 					{orders.map((o, i) => (
 						<Fragment key={i}>
 							<div className={styles['order-data']}>{o.id}</div>
-							<div className={styles['order-data']}>{formatedDate(o.createdAt)}</div>
+							<div className={styles['order-data']}>{formatDate(o.createdAt)}</div>
 							<div className={styles['order-data']}>Оформление</div>
 							<div className={styles['order-data']}>$ {calculateTotalPrice(o.data)}</div>
 						</Fragment>
@@ -108,7 +101,7 @@ function Profile() {
 							<div className={styles['order-block']}>
 								Дата
 								<div className={styles['order-data']}>
-									{formatedDate(o.createdAt)}
+									{formatDate(o.createdAt)}
 								</div>
 							</div>
 							<div className={styles['order-block']}>
@@ -126,7 +119,6 @@ function Profile() {
 							<hr className={styles['mobile-hr']}/>
 						</div>
 					))}
-
 				</motion.div>
 			</div>
 		</div>
