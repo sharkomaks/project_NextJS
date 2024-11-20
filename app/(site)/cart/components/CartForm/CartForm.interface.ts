@@ -3,5 +3,5 @@ export interface CartFormInterface {
 	password: string;
 	address: string;
 	name: string;
-	phone: number;
+	phone: string;
 }

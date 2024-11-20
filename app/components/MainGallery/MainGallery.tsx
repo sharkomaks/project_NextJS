@@ -10,8 +10,8 @@ import Button from '@/components/Button/Button';
 function MainGallery() {
 
 	const images = [
-		{original: img1.src},
-		{original: img2.src}
+		{original: img1.src, originalAlt: 'Картинка модели с украшением'},
+		{original: img2.src, originalAlt: 'Картинка модели с украшением'}
 	];
 
 	return (

@@ -1,0 +1,30 @@
+.checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 18px;
+    height: 18px;
+
+    background: var(--white);
+    border: 1px solid var(--black);
+}
+
+.login-checkbox {
+    border: 1px solid var(--dark-gray);
+    border-radius: 2px;
+}
+
+.error {
+    border: 1px solid var(--errors);
+}
+
+.check-icon {
+    display: none;
+    width: 16px;
+    height: 16px;
+}
+
+.checked .check-icon {
+    display: block;
+}

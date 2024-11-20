@@ -58,25 +58,3 @@
     align-items: center;
     margin-top: -20px;
 }
-
-.checkbox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 18px;
-    height: 18px;
-
-    background: var(--white);
-    border: 1px solid var(--black);
-}
-
-.check-icon {
-    display: none;
-    width: 16px;
-    height: 16px;
-}
-
-.checked .check-icon {
-    display: block;
-}

@@ -14,9 +14,9 @@ function Footer() {
 	return (
 		<footer className={styles['footer']}>
 			<div className={styles['info']}>
-				<Link href={'/'}>КОНТАКТЫ</Link>
-				<Link href={'/'}>УСЛОВИЯ ПОКУПКИ</Link>
-				<Link href={'/'}>ДОСТАВКА И ВОЗВРАТ</Link>
+				<Link aria-label={'Переход на страницу с контактами'} href={'/'}>КОНТАКТЫ</Link>
+				<Link aria-label={'Переход на страницу с условиями покупки'} href={'/'}>УСЛОВИЯ ПОКУПКИ</Link>
+				<Link aria-label={'Переход на страницу с доставкой и возвратом'} href={'/'}>ДОСТАВКА И ВОЗВРАТ</Link>
 			</div>
 			<Form className={styles['form']} type={'email'} setOpen={setOpen}></Form>
 			<div className={styles['copy']}>

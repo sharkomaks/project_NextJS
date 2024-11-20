@@ -27,16 +27,7 @@ function Store({filter, products}: StoreProps) {
 	const [offset, setOffset] = useState<number>(0);
 	const [product, setProduct] = useState<Products>(products);
 	const router = useRouter();
-
-	const updateURL = () => {
-		router.push(`store?offset=${offset}` +
-			`${searchQuery ? `&search=${searchQuery}` : ''}` +
-			`${selectedCategory ? `&category=${selectedCategory}` : ''}` +
-			`${discounted ? `&discounted=${discounted}` : ''}` +
-			`&minPrice=${priceRange.min}` +
-			`&maxPrice=${priceRange.max}`);
-	};
-
+	
 	useEffect(() => {
 		setOffset(0);
 		updateURL();
@@ -47,6 +38,15 @@ function Store({filter, products}: StoreProps) {
 		updateURL();
 		prod();
 	}, [offset]);
+
+	const updateURL = () => {
+		router.push(`store?offset=${offset}` +
+			`${searchQuery ? `&search=${searchQuery}` : ''}` +
+			`${selectedCategory ? `&category=${selectedCategory}` : ''}` +
+			`${discounted ? `&discounted=${discounted}` : ''}` +
+			`&minPrice=${priceRange.min}` +
+			`&maxPrice=${priceRange.max}`);
+	};
 
 	const prod = async () => {
 		const products = await getProducts({

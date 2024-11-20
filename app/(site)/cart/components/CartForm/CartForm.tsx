@@ -5,33 +5,77 @@ import Button from '@/components/Button/Button';
 import {useForm} from 'react-hook-form';
 import {CartFormInterface} from './CartForm.interface';
 import Htag from '@/components/Htag/Htag';
+import {useContext, useEffect} from 'react';
+import {UserContext} from '@/context/user.context';
+import {updateProfile} from '@/api/profile';
+import {createOrder} from '@/api/order';
+import {setRegister} from '@/api/register';
+import {useRouter} from 'next/navigation';
 
-function CartForm({totalPrice}: CartFormProps) {
+function CartForm({cart, totalPrice}: CartFormProps) {
 
-	const {register, handleSubmit, formState: {errors}, clearErrors} = useForm<CartFormInterface>();
+	const router = useRouter();
+	const {jwt, setJwt, profile, setProfile, dataCart, setDataCart} = useContext(UserContext);
+	const {register, handleSubmit, formState: {errors}, reset, clearErrors} = useForm<CartFormInterface>();
+	const updatedCart = cart.map(i => ({
+		name: i.name,
+		price: i.price,
+		count: dataCart.find(c => c.sku === i.sku)?.count ?? 0
+	}));
 
-	const a = (data: CartFormInterface) => {
-		console.log(data);
+	useEffect(() => {
+		if (profile) {
+			reset({
+				name: profile.name ? profile.name : '',
+				phone: profile.phone ? profile.phone : '',
+				address: profile.address ? profile.address : ''
+			});
+		}
+	}, [profile, reset]);
+
+	const sendOrder = async (data: CartFormInterface) => {
+		if (!updatedCart.length) {
+			return;
+		}
+		if (jwt && profile) {
+			const updatedProfile = await updateProfile(jwt, {
+				name: data.name,
+				phone: data.phone,
+				address: data.address
+			});
+			setProfile(updatedProfile);
+			const order = await createOrder(jwt, updatedCart);
+			router.push(`/order-success?orderId=${order.id}`);
+			setDataCart([]);
+		}
+		if (!jwt || !profile) {
+			const register = await setRegister(data);
+			if ('message' in register) return;
+			setJwt(register.access_token);
+			const order = await createOrder(register.access_token, updatedCart);
+			setDataCart([]);
+			router.push(`/order-success?orderId=${order.id}`);
+		}
 	};
 
 	return (
-		<form onSubmit={handleSubmit(a)} className={styles['cart-form']}>
-			<div className={styles['email']}>
+		<form onSubmit={handleSubmit(sendOrder)} className={styles['cart-form']}>
+			{!profile?.email && <div className={styles['email']}>
 				<Input
 					{...register('email', {required: {value: true, message: 'Заполните email'}})}
 					type={'email'}
 					placeholder={errors.email ? '' : 'Email'}/>
 				{errors.email &&
 					<span className={styles['error-message']}>{errors.email.message}</span>}
-			</div>
-			<div className={styles['password']}>
+			</div>}
+			{!profile && <div className={styles['password']}>
 				<Input
 					{...register('password', {required: {value: true, message: 'Заполните пароль'}})}
 					type={'password'}
 					placeholder={errors.password ? '' : 'Пароль'}/>
 				{errors.password &&
 					<span className={styles['error-message']}>{errors.password.message}</span>}
-			</div>
+			</div>}
 			<div className={styles['address']}>
 				<Input
 					{...register('address', {required: {value: true, message: 'Заполните адрес доставки'}})}

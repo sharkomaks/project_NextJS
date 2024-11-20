@@ -5,6 +5,7 @@ import {calculateOldPrice} from '@/helpers/oldPrice';
 import Htag from '@/components/Htag/Htag';
 import {useContext} from 'react';
 import {UserContext} from '@/context/user.context';
+import Link from 'next/link';
 
 function CartItem({product}: CartItemProps) {
 
@@ -15,7 +16,9 @@ function CartItem({product}: CartItemProps) {
 	return (
 		<>
 			<div className={styles['cart-item']}>
-				<img src={images[0]} alt={product.name}/>
+				<Link aria-label={'Переход на страницу товара'} href={`/product/${sku}`}>
+					<img src={images[0]} alt={product.name}/>
+				</Link>
 				<div className={styles['block']}>
 					<div className={styles['name']}>
 						<Htag tag={'h3'}>{name}</Htag>
@@ -28,12 +31,17 @@ function CartItem({product}: CartItemProps) {
 						</div>
 					</div>
 					<div className={styles['count']}>
-						<button onClick={() => subtractFromCart(sku)}>-</button>
+						<button aria-label={'Уменьшить количество'} onClick={() => subtractFromCart(sku)}>-</button>
 						{count}
-						<button onClick={() => addToCart(sku)}>+</button>
+						<button aria-label={'Увеличить количество'} onClick={() => addToCart(sku)}>+</button>
 					</div>
 				</div>
-				<button onClick={() => removeFromCart(sku)} className={styles['remove']}><RemoveIcon/></button>
+				<button
+					aria-label={'Удалить товар'}
+					onClick={() => removeFromCart(sku)}
+					className={styles['remove']}>
+					<RemoveIcon/>
+				</button>
 			</div>
 			<hr className={styles['hr']}/>
 		</>
